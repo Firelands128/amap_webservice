@@ -40,7 +40,7 @@ extension GeocodeService on WebService {
     String? homeOrCorp,
   }) async {
     Uri uri = appendApiPath(this.uri, "/v3/geocode/regeo");
-    final params = <String, String>{};
+    final params = <String, dynamic>{};
     params['key'] = apiKey;
     params["location"] = "${location.longitude?.toStringAsFixed(6)},"
         "${location.latitude?.toStringAsFixed(6)}";

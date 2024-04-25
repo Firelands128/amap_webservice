@@ -8,7 +8,7 @@ extension GeocodeService on WebService {
   Future<GeocodeResponse> geocode(
     String address, {
     String? city,
-    String? output = "JSON",
+    String? output,
   }) async {
     Uri uri = appendApiPath(this.uri, "/geocode/geo");
     final params = <String, dynamic>{};

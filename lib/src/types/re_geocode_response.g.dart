@@ -19,7 +19,7 @@ Map<String, dynamic> _$ReGeocodeResponseToJson(ReGeocodeResponse instance) =>
       'status': instance.status,
       'info': instance.info,
       'infocode': instance.infoCode,
-      'regeocode': instance.reGeocode,
+      'regeocode': instance.reGeocode?.toJson(),
     };
 
 ReGeocode _$ReGeocodeFromJson(Map<String, dynamic> json) => ReGeocode(
@@ -34,11 +34,11 @@ ReGeocode _$ReGeocodeFromJson(Map<String, dynamic> json) => ReGeocode(
 
 Map<String, dynamic> _$ReGeocodeToJson(ReGeocode instance) => <String, dynamic>{
       'formatted_address': instance.formattedAddress,
-      'addressComponent': instance.addressComponent,
-      'pois': instance.pois,
-      'roads': instance.roads,
-      'roadinters': instance.roadInters,
-      'aois': instance.aois,
+      'addressComponent': instance.addressComponent?.toJson(),
+      'pois': instance.pois?.map((e) => e.toJson()).toList(),
+      'roads': instance.roads?.map((e) => e.toJson()).toList(),
+      'roadinters': instance.roadInters?.map((e) => e.toJson()).toList(),
+      'aois': instance.aois?.map((e) => e.toJson()).toList(),
     };
 
 AddressComponent _$AddressComponentFromJson(Map<String, dynamic> json) =>
@@ -67,10 +67,10 @@ Map<String, dynamic> _$AddressComponentToJson(AddressComponent instance) =>
       'adcode': instance.adcode,
       'township': instance.township,
       'towncode': instance.townCode,
-      'neighborhood': instance.neighborhood,
-      'building': instance.building,
-      'streetNumber': instance.streetNumber,
-      'businessAreas': instance.businessAreas,
+      'neighborhood': instance.neighborhood?.toJson(),
+      'building': instance.building?.toJson(),
+      'streetNumber': instance.streetNumber?.toJson(),
+      'businessAreas': instance.businessAreas?.map((e) => e.toJson()).toList(),
     };
 
 StreetNumber _$StreetNumberFromJson(Map<String, dynamic> json) => StreetNumber(

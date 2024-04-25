@@ -21,7 +21,7 @@ Map<String, dynamic> _$GeocodeResponseToJson(GeocodeResponse instance) =>
       'info': instance.info,
       'infocode': instance.infoCode,
       'count': instance.count,
-      'geocodes': instance.geocodes,
+      'geocodes': instance.geocodes?.map((e) => e.toJson()).toList(),
     };
 
 Geocode _$GeocodeFromJson(Map<String, dynamic> json) => Geocode(
@@ -47,8 +47,8 @@ Map<String, dynamic> _$GeocodeToJson(Geocode instance) => <String, dynamic>{
       'citycode': instance.cityCode,
       'city': instance.city,
       'district': instance.district,
-      'neighborhood': instance.neighborhood,
-      'building': instance.building,
+      'neighborhood': instance.neighborhood?.toJson(),
+      'building': instance.building?.toJson(),
       'adcode': instance.adcode,
       'street': instance.street,
       'number': instance.number,

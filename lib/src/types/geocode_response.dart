@@ -7,7 +7,7 @@ import 'neighborhood.dart';
 
 part 'geocode_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class GeocodeResponse {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? status;
@@ -50,7 +50,7 @@ class GeocodeResponse {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Geocode {
   @JsonKey(name: 'formatted_address', fromJson: stringNullableFromJson)
   final String? formattedAddress;

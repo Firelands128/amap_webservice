@@ -6,7 +6,7 @@ import 'neighborhood.dart';
 
 part 're_geocode_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ReGeocodeResponse {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? status;
@@ -44,7 +44,7 @@ class ReGeocodeResponse {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ReGeocode {
   @JsonKey(name: 'formatted_address', fromJson: stringNullableFromJson)
   final String? formattedAddress;
@@ -99,7 +99,7 @@ class ReGeocode {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class AddressComponent {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? country;
@@ -184,7 +184,7 @@ class AddressComponent {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class StreetNumber {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? street;
@@ -234,7 +234,7 @@ class StreetNumber {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BusinessArea {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? location;
@@ -280,7 +280,7 @@ class BusinessArea {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Poi {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;
@@ -360,7 +360,7 @@ class Poi {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Road {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;
@@ -415,7 +415,7 @@ class Road {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class RoadInter {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? direction;
@@ -481,7 +481,7 @@ class RoadInter {
   }
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Aoi {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;

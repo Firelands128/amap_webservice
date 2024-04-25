@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'location.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Location {
   final double? longitude;
 

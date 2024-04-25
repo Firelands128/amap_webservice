@@ -4,7 +4,7 @@ import 'base.dart';
 
 part 'neighborhood.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Neighborhood {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? name;

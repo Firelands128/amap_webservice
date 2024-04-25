@@ -1,18 +1,6 @@
-part of '../amap_webservice.dart';
+part of '../web_service.dart';
 
-class GeocodeService extends WebService {
-  static const _geocodeUrl = '/geocode';
-
-  GeocodeService({
-    super.httpClient,
-    required super.apiKey,
-    super.secretKey,
-    super.apiHeaders,
-    super.baseUrl,
-  }) : super(
-          apiPath: _geocodeUrl,
-        );
-
+extension GeocodeService on WebService {
   /// [地理编码](https://lbs.amap.com/api/webservice/guide/api/georegeo#geo)
   /// address: 结构化地址信息
   /// city: 指定查询的城市，默认全国范围
@@ -22,7 +10,7 @@ class GeocodeService extends WebService {
     String? city,
     String? output = "JSON",
   }) async {
-    Uri uri = appendApiPath(this.uri, "/geo");
+    Uri uri = appendApiPath(this.uri, "/geocode/geo");
     final params = <String, dynamic>{};
     params['key'] = apiKey;
     params["address"] = address;
@@ -51,7 +39,7 @@ class GeocodeService extends WebService {
     String? roadLevel,
     String? homeOrCorp,
   }) async {
-    Uri uri = appendApiPath(this.uri, "/regeo");
+    Uri uri = appendApiPath(this.uri, "/geocode/regeo");
     final params = <String, String>{};
     params['key'] = apiKey;
     params["location"] = "${location.longitude?.toStringAsFixed(6)},"
@@ -66,24 +54,5 @@ class GeocodeService extends WebService {
     final url = appendParameters(uri, params).toString();
     final response = await doGet(url, headers: apiHeaders);
     return ReGeocodeResponse.fromJson(jsonDecode(response.body));
-  }
-
-  Uri appendApiPath(Uri uri, String apiPath) {
-    return uri.replace(path: '${uri.path}$apiPath');
-  }
-
-  Uri appendParameters(Uri uri, Map<String, dynamic> params) {
-    return uri.replace(queryParameters: params);
-  }
-
-  String generateSignature(Map<String, dynamic> params) {
-    assert(secretKey != null);
-    String raw = SplayTreeMap.from(params)
-        .entries
-        .map((entry) => "${entry.key}=${entry.value}")
-        .toList()
-        .join("&");
-    raw += secretKey!;
-    return md5.convert(utf8.encode(raw)).toString();
   }
 }

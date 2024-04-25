@@ -11,7 +11,7 @@ import 'types.dart';
 part 'services/geocode_service.dart';
 
 class WebService {
-  final _kAMapsUri = Uri.parse('https://restapi.amap.com/v3');
+  final _kAMapsUri = Uri.parse('https://restapi.amap.com');
 
   @protected
   final Client _httpClient;

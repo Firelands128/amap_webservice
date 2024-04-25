@@ -10,7 +10,7 @@ extension GeocodeService on WebService {
     String? city,
     String? output,
   }) async {
-    Uri uri = appendApiPath(this.uri, "/geocode/geo");
+    Uri uri = appendApiPath(this.uri, "/v3/geocode/geo");
     final params = <String, dynamic>{};
     params['key'] = apiKey;
     params["address"] = address;
@@ -39,7 +39,7 @@ extension GeocodeService on WebService {
     String? roadLevel,
     String? homeOrCorp,
   }) async {
-    Uri uri = appendApiPath(this.uri, "/geocode/regeo");
+    Uri uri = appendApiPath(this.uri, "/v3/geocode/regeo");
     final params = <String, String>{};
     params['key'] = apiKey;
     params["location"] = "${location.longitude?.toStringAsFixed(6)},"

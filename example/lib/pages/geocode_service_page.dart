@@ -29,7 +29,9 @@ class _GeocodeServicePageState extends State<GeocodeServicePage> {
   void onGeocodePressed() async {
     final response = await service.geocode(geoTextController.text);
     setState(() {
-      geoResultController.text = jsonEncode(response.geocodes?.first.toJson());
+      geoResultController.text = jsonEncode(
+        response.geocodes?.map((geocode) => geocode.toJson()).toList(),
+      );
     });
   }
 

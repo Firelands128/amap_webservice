@@ -32,7 +32,8 @@ _ReGeocode _$ReGeocodeFromJson(Map<String, dynamic> json) => _ReGeocode(
       aois: _Aoi.nullableListFromJson(json['aois']),
     );
 
-Map<String, dynamic> _$ReGeocodeToJson(_ReGeocode instance) => <String, dynamic>{
+Map<String, dynamic> _$ReGeocodeToJson(_ReGeocode instance) =>
+    <String, dynamic>{
       'formatted_address': instance.formattedAddress,
       'addressComponent': instance.addressComponent?.toJson(),
       'pois': instance.pois?.map((e) => e.toJson()).toList(),
@@ -73,7 +74,8 @@ Map<String, dynamic> _$AddressComponentToJson(_AddressComponent instance) =>
       'businessAreas': instance.businessAreas?.map((e) => e.toJson()).toList(),
     };
 
-_StreetNumber _$StreetNumberFromJson(Map<String, dynamic> json) => _StreetNumber(
+_StreetNumber _$StreetNumberFromJson(Map<String, dynamic> json) =>
+    _StreetNumber(
       street: stringNullableFromJson(json['street']),
       number: stringNullableFromJson(json['number']),
       location: stringNullableFromJson(json['location']),
@@ -90,7 +92,8 @@ Map<String, dynamic> _$StreetNumberToJson(_StreetNumber instance) =>
       'distance': instance.distance,
     };
 
-_BusinessArea _$BusinessAreaFromJson(Map<String, dynamic> json) => _BusinessArea(
+_BusinessArea _$BusinessAreaFromJson(Map<String, dynamic> json) =>
+    _BusinessArea(
       location: stringNullableFromJson(json['location']),
       name: stringNullableFromJson(json['name']),
       id: stringNullableFromJson(json['id']),
@@ -155,7 +158,8 @@ _RoadInter _$RoadInterFromJson(Map<String, dynamic> json) => _RoadInter(
       secondName: stringNullableFromJson(json['second_name']),
     );
 
-Map<String, dynamic> _$RoadInterToJson(_RoadInter instance) => <String, dynamic>{
+Map<String, dynamic> _$RoadInterToJson(_RoadInter instance) =>
+    <String, dynamic>{
       'direction': instance.direction,
       'distance': instance.distance,
       'location': instance.location,

@@ -1,3 +1,4 @@
+import 'package:example/pages/search_poi_service_page.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/geocode_service_page.dart';
@@ -32,12 +33,18 @@ class _AppState extends State<App> {
           disabledColor: Colors.grey[400],
         ),
         home: Scaffold(
-          body: ListView(children: [
-            Item(
-              GeocodeServicePage.title,
-              (_) => const GeocodeServicePage(),
-            ),
-          ]),
+          body: ListView(
+            children: [
+              Item(
+                GeocodeServicePage.title,
+                (_) => const GeocodeServicePage(),
+              ),
+              Item(
+                SearchPoiServicePage.title,
+                (_) => const SearchPoiServicePage(),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -52,7 +52,7 @@ extension SearchPoiService on WebService {
   /// page_num: 请求第几分页，page_num的取值1-100，默认为1
   /// output: 返回结果格式类型，默认格式为json，目前只支持json格式
   Future<SearchPoiResponse> searchAround(
-      String location, {
+      Location location, {
         String? keywords,
         String? types,
         int? radius,
@@ -67,7 +67,8 @@ extension SearchPoiService on WebService {
     Uri uri = appendApiPath(this.uri, "/v5/place/around");
     final params = <String, dynamic>{};
     params['key'] = apiKey;
-    params["location"] = location;
+    params["location"] = "${location.longitude?.toStringAsFixed(6)},"
+        "${location.latitude?.toStringAsFixed(6)}";
     if (keywords != null) params["keywords"] = keywords;
     if (types != null) params["types"] = types;
     if (radius != null) params["radius"] = radius;

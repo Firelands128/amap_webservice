@@ -23,7 +23,7 @@ extension GeocodeService on WebService {
   }
 
   /// [逆地理编码](https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo)
-  /// location: 经纬度坐标
+  /// location: 必填，经纬度坐标
   /// radius: 搜索半径，取值范围在0~3000，默认是1000，单位：米
   /// output: 返回数据格式类型，默认为JSON
   /// extensions：返回结果控制，取值为base只返回基本地址信息，取值为all时会返回基本地址信息、附近POI内容、道路信息以及道路交叉口信息

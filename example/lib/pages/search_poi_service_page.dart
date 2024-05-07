@@ -22,7 +22,8 @@ class _SearchPoiServicePageState extends State<SearchPoiServicePage> {
   );
   final searchTextController = TextEditingController();
   final searchTextResultController = TextEditingController();
-  final searchAroundController = TextEditingController();
+  final searchAroundLongitudeController = TextEditingController();
+  final searchAroundLatitudeController = TextEditingController();
   final searchAroundResultController = TextEditingController();
 
   void onSearchTextPressed() async {
@@ -36,8 +37,10 @@ class _SearchPoiServicePageState extends State<SearchPoiServicePage> {
   }
 
   void onSearchAroundPressed() async {
-    final response =
-        await service.searchAround(searchAroundController.text);
+    final response = await service.searchAround(Location(
+      longitude: double.parse(searchAroundLongitudeController.text),
+      latitude: double.parse(searchAroundLatitudeController.text),
+    ));
     setState(() {
       searchAroundResultController.text = jsonEncode(
         response.pois?.map((poi) => poi.toJson()).toList(),
@@ -105,13 +108,42 @@ class _SearchPoiServicePageState extends State<SearchPoiServicePage> {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 10),
-                child: TextField(
-                  textAlignVertical: TextAlignVertical.center,
-                  controller: searchAroundController,
-                  decoration: const InputDecoration(
-                    isDense: true,
-                    border: OutlineInputBorder(borderSide: BorderSide()),
-                  ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Text("经度", style: TextStyle(fontSize: 16)),
+                          TextField(
+                            textAlignVertical: TextAlignVertical.center,
+                            controller: searchAroundLongitudeController,
+                            decoration: const InputDecoration(
+                              isDense: true,
+                              border:
+                              OutlineInputBorder(borderSide: BorderSide()),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Text("纬度", style: TextStyle(fontSize: 16)),
+                          TextField(
+                            textAlignVertical: TextAlignVertical.center,
+                            controller: searchAroundLatitudeController,
+                            decoration: const InputDecoration(
+                              isDense: true,
+                              border:
+                              OutlineInputBorder(borderSide: BorderSide()),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Container(

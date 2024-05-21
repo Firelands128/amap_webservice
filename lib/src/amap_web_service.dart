@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
+import 'package:latlong2/latlong.dart';
 
 import 'types.dart';
 

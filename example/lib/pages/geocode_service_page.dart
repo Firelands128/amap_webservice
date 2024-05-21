@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:amap_webservice/amap_webservice.dart';
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 
 /// 地理/逆地理编码页面
 class GeocodeServicePage extends StatefulWidget {
@@ -36,9 +37,9 @@ class _GeocodeServicePageState extends State<GeocodeServicePage> {
   }
 
   void onReGeocodePressed() async {
-    final response = await service.reGeocode(Location(
-      longitude: double.parse(reGeoLongitudeTextController.text),
-      latitude: double.parse(reGeoLatitudeTextController.text),
+    final response = await service.reGeocode(LatLng(
+      double.parse(reGeoLatitudeTextController.text),
+      double.parse(reGeoLongitudeTextController.text),
     ));
     setState(() {
       reGeoResultController.text = jsonEncode(response.reGeocode?.toJson());

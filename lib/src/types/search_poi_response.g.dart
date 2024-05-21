@@ -37,7 +37,7 @@ Poi _$PoiFromJson(Map<String, dynamic> json) => Poi(
       adName: stringNullableFromJson(json['adname']),
       cityCode: stringNullableFromJson(json['citycode']),
       name: stringNullableFromJson(json['name']),
-      location: stringNullableFromJson(json['location']),
+      location: latLngNullableFromJson(json['location']),
       id: stringNullableFromJson(json['id']),
     );
 
@@ -54,6 +54,6 @@ Map<String, dynamic> _$PoiToJson(Poi instance) => <String, dynamic>{
       'adname': instance.adName,
       'citycode': instance.cityCode,
       'name': instance.name,
-      'location': instance.location,
+      'location': instance.location?.toJson(),
       'id': instance.id,
     };

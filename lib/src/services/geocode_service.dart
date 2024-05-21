@@ -31,7 +31,7 @@ extension GeocodeService on AMapWebService {
   /// roadLevel: 道路等级，extensions参数为all时生效
   /// homeOrCorp: 是否优化POI返回顺序，extensions参数为all时生效
   Future<ReGeocodeResponse> reGeocode(
-    Location location, {
+    LatLng location, {
     int? radius,
     String? output,
     String? extensions,
@@ -42,8 +42,8 @@ extension GeocodeService on AMapWebService {
     Uri uri = appendApiPath(this.uri, "/v3/geocode/regeo");
     final params = <String, dynamic>{};
     params['key'] = apiKey;
-    params["location"] = "${location.longitude?.toStringAsFixed(6)},"
-        "${location.latitude?.toStringAsFixed(6)}";
+    params["location"] = "${location.longitude.toStringAsFixed(6)},"
+        "${location.latitude.toStringAsFixed(6)}";
     if (radius != null) params["radius"] = min(max(0, radius), 3000).toString();
     if (output != null) params["output"] = output;
     if (extensions != null) params["extensions"] = extensions;

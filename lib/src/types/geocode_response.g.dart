@@ -36,7 +36,7 @@ Geocode _$GeocodeFromJson(Map<String, dynamic> json) => Geocode(
       adcode: stringNullableFromJson(json['adcode']),
       street: stringNullableFromJson(json['street']),
       number: stringNullableFromJson(json['number']),
-      location: Location.nullableFromJson(json['location']),
+      location: latLngNullableFromJson(json['location']),
       level: stringNullableFromJson(json['level']),
     );
 
@@ -52,6 +52,6 @@ Map<String, dynamic> _$GeocodeToJson(Geocode instance) => <String, dynamic>{
       'adcode': instance.adcode,
       'street': instance.street,
       'number': instance.number,
-      'location': Location.nullableToJson(instance.location),
+      'location': latLngNullableToJson(instance.location),
       'level': instance.level,
     };

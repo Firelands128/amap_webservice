@@ -1,5 +1,6 @@
 import 'package:amap_webservice/src/types/base.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:latlong2/latlong.dart';
 
 part 'search_poi_response.g.dart';
 
@@ -72,8 +73,8 @@ class Poi {
   final String? cityCode;
   @JsonKey(fromJson: stringNullableFromJson)
   final String? name;
-  @JsonKey(fromJson: stringNullableFromJson)
-  final String? location;
+  @JsonKey(fromJson: latLngNullableFromJson)
+  final LatLng? location;
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;
 
@@ -111,7 +112,7 @@ class Poi {
     String? adName,
     String? cityCode,
     String? name,
-    String? location,
+    LatLng? location,
     String? id,
   }) {
     return Poi(

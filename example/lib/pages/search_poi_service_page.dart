@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:amap_webservice/amap_webservice.dart';
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 
 /// 搜索POI页面
 class SearchPoiServicePage extends StatefulWidget {
@@ -37,9 +38,9 @@ class _SearchPoiServicePageState extends State<SearchPoiServicePage> {
   }
 
   void onSearchAroundPressed() async {
-    final response = await service.searchAround(Location(
-      longitude: double.parse(searchAroundLongitudeController.text),
-      latitude: double.parse(searchAroundLatitudeController.text),
+    final response = await service.searchAround(LatLng(
+      double.parse(searchAroundLatitudeController.text),
+      double.parse(searchAroundLongitudeController.text),
     ));
     setState(() {
       searchAroundResultController.text = jsonEncode(
@@ -120,7 +121,7 @@ class _SearchPoiServicePageState extends State<SearchPoiServicePage> {
                             decoration: const InputDecoration(
                               isDense: true,
                               border:
-                              OutlineInputBorder(borderSide: BorderSide()),
+                                  OutlineInputBorder(borderSide: BorderSide()),
                             ),
                           ),
                         ],
@@ -137,7 +138,7 @@ class _SearchPoiServicePageState extends State<SearchPoiServicePage> {
                             decoration: const InputDecoration(
                               isDense: true,
                               border:
-                              OutlineInputBorder(borderSide: BorderSide()),
+                                  OutlineInputBorder(borderSide: BorderSide()),
                             ),
                           ),
                         ],

@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:latlong2/latlong.dart';
 
 import 'base.dart';
 import 'building.dart';
-import 'location.dart';
 import 'neighborhood.dart';
 
 part 'geocode_response.g.dart';
@@ -74,8 +74,8 @@ class Geocode {
   final String? street;
   @JsonKey(fromJson: stringNullableFromJson)
   final String? number;
-  @JsonKey(toJson: Location.nullableToJson, fromJson: Location.nullableFromJson)
-  final Location? location;
+  @JsonKey(toJson: latLngNullableToJson, fromJson: latLngNullableFromJson)
+  final LatLng? location;
   @JsonKey(fromJson: stringNullableFromJson)
   final String? level;
 
@@ -112,7 +112,7 @@ class Geocode {
     String? adcode,
     String? street,
     String? number,
-    Location? location,
+    LatLng? location,
     String? level,
   }) {
     return Geocode(

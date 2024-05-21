@@ -1,6 +1,6 @@
-part of '../web_service.dart';
+part of '../amap_web_service.dart';
 
-extension GeocodeService on WebService {
+extension GeocodeService on AMapWebService {
   /// [地理编码](https://lbs.amap.com/api/webservice/guide/api/georegeo#geo)
   /// address: 结构化地址信息
   /// city: 指定查询的城市，默认全国范围

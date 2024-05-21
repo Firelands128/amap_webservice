@@ -11,7 +11,7 @@ import 'types.dart';
 part 'services/geocode_service.dart';
 part 'services/search_poi.dart';
 
-class WebService {
+class AMapWebService {
   final _kAMapsUri = Uri.parse('https://restapi.amap.com');
 
   @protected
@@ -39,7 +39,7 @@ class WebService {
 
   Uri get uri => _uri;
 
-  WebService({
+  AMapWebService({
     Client? httpClient,
     required String apiKey,
     String? secretKey,

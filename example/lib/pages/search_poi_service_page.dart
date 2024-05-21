@@ -16,7 +16,7 @@ class SearchPoiServicePage extends StatefulWidget {
 }
 
 class _SearchPoiServicePageState extends State<SearchPoiServicePage> {
-  final service = WebService(
+  final service = AMapWebService(
     apiKey: '0e2f6cd577c7b01f2f10e8a8a4cdf153',
     secretKey: '36b5528aecd3e4aba379e1ef352820fd',
   );

@@ -1,6 +1,6 @@
-part of '../web_service.dart';
+part of '../amap_web_service.dart';
 
-extension SearchPoiService on WebService {
+extension SearchPoiService on AMapWebService {
   /// [关键字搜索](https://lbs.amap.com/api/webservice/guide/api-advanced/newpoisearch#t3)
   /// 必填: keyword或者types二选一
   /// keywords: 地点关键字

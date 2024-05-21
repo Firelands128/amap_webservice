@@ -13,9 +13,8 @@ class SearchPoiResponse {
   final String? infoCode;
   @JsonKey(fromJson: stringNullableFromJson)
   final String? count;
-  @JsonKey(fromJson: _Poi.nullableListFromJson)
-  final List<_Poi>? pois;
-
+  @JsonKey(fromJson: Poi.nullableListFromJson)
+  final List<Poi>? pois;
 
   const SearchPoiResponse({
     this.status,
@@ -35,7 +34,7 @@ class SearchPoiResponse {
     String? info,
     String? infoCode,
     String? count,
-    List<_Poi>? pois,
+    List<Poi>? pois,
   }) {
     return SearchPoiResponse(
       status: status ?? this.status,
@@ -48,7 +47,7 @@ class SearchPoiResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
-class _Poi {
+class Poi {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? parent;
   @JsonKey(fromJson: stringNullableFromJson)
@@ -78,7 +77,7 @@ class _Poi {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;
 
-  const _Poi({
+  const Poi({
     this.parent,
     this.address,
     this.distance,
@@ -95,11 +94,11 @@ class _Poi {
     this.id,
   });
 
-  factory _Poi.fromJson(Map<String, dynamic> json) => _$PoiFromJson(json);
+  factory Poi.fromJson(Map<String, dynamic> json) => _$PoiFromJson(json);
 
   Map<String, dynamic> toJson() => _$PoiToJson(this);
 
-  _Poi copyWith({
+  Poi copyWith({
     String? parent,
     String? address,
     String? distance,
@@ -115,7 +114,7 @@ class _Poi {
     String? location,
     String? id,
   }) {
-    return _Poi(
+    return Poi(
       parent: parent ?? this.parent,
       address: address ?? this.address,
       distance: distance ?? this.distance,
@@ -133,12 +132,12 @@ class _Poi {
     );
   }
 
-  static List<_Poi>? nullableListFromJson(dynamic value) {
-    List<_Poi> result = [];
+  static List<Poi>? nullableListFromJson(dynamic value) {
+    List<Poi> result = [];
     if (value is List) {
       for (var item in value) {
         if (item is Map<String, dynamic>) {
-          result.add(_Poi.fromJson(item));
+          result.add(Poi.fromJson(item));
         }
       }
       return result;

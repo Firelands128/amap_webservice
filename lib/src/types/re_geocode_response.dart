@@ -14,8 +14,8 @@ class ReGeocodeResponse {
   final String? info;
   @JsonKey(name: "infocode", fromJson: stringNullableFromJson)
   final String? infoCode;
-  @JsonKey(name: "regeocode", fromJson: _ReGeocode.nullableFromJson)
-  final _ReGeocode? reGeocode;
+  @JsonKey(name: "regeocode", fromJson: ReGeocode.nullableFromJson)
+  final ReGeocode? reGeocode;
 
   const ReGeocodeResponse({
     this.status,
@@ -33,7 +33,7 @@ class ReGeocodeResponse {
     String? status,
     String? info,
     String? infoCode,
-    _ReGeocode? reGeocode,
+    ReGeocode? reGeocode,
   }) {
     return ReGeocodeResponse(
       status: status ?? this.status,
@@ -45,21 +45,21 @@ class ReGeocodeResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
-class _ReGeocode {
+class ReGeocode {
   @JsonKey(name: 'formatted_address', fromJson: stringNullableFromJson)
   final String? formattedAddress;
-  @JsonKey(fromJson: _AddressComponent.nullableFromJson)
-  final _AddressComponent? addressComponent;
-  @JsonKey(fromJson: _Poi.nullableListFromJson)
-  final List<_Poi>? pois;
-  @JsonKey(fromJson: _Road.nullableListFromJson)
-  final List<_Road>? roads;
-  @JsonKey(name: "roadinters", fromJson: _RoadInter.nullableListFromJson)
-  final List<_RoadInter>? roadInters;
-  @JsonKey(fromJson: _Aoi.nullableListFromJson)
-  final List<_Aoi>? aois;
+  @JsonKey(fromJson: AddressComponent.nullableFromJson)
+  final AddressComponent? addressComponent;
+  @JsonKey(fromJson: ReGeocodePoi.nullableListFromJson)
+  final List<ReGeocodePoi>? pois;
+  @JsonKey(fromJson: Road.nullableListFromJson)
+  final List<Road>? roads;
+  @JsonKey(name: "roadinters", fromJson: RoadInter.nullableListFromJson)
+  final List<RoadInter>? roadInters;
+  @JsonKey(fromJson: Aoi.nullableListFromJson)
+  final List<Aoi>? aois;
 
-  const _ReGeocode({
+  const ReGeocode({
     this.formattedAddress,
     this.addressComponent,
     this.pois,
@@ -68,20 +68,20 @@ class _ReGeocode {
     this.aois,
   });
 
-  factory _ReGeocode.fromJson(Map<String, dynamic> json) =>
+  factory ReGeocode.fromJson(Map<String, dynamic> json) =>
       _$ReGeocodeFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReGeocodeToJson(this);
 
-  _ReGeocode copyWith({
+  ReGeocode copyWith({
     String? formattedAddress,
-    _AddressComponent? addressComponent,
-    List<_Poi>? pois,
-    List<_Road>? roads,
-    List<_RoadInter>? roadInters,
-    List<_Aoi>? aois,
+    AddressComponent? addressComponent,
+    List<ReGeocodePoi>? pois,
+    List<Road>? roads,
+    List<RoadInter>? roadInters,
+    List<Aoi>? aois,
   }) {
-    return _ReGeocode(
+    return ReGeocode(
       formattedAddress: formattedAddress ?? this.formattedAddress,
       addressComponent: addressComponent ?? this.addressComponent,
       pois: pois ?? this.pois,
@@ -91,16 +91,16 @@ class _ReGeocode {
     );
   }
 
-  static _ReGeocode? nullableFromJson(dynamic value) {
+  static ReGeocode? nullableFromJson(dynamic value) {
     if (value is Map<String, dynamic>) {
-      return _ReGeocode.fromJson(value);
+      return ReGeocode.fromJson(value);
     }
     return null;
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class _AddressComponent {
+class AddressComponent {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? country;
   @JsonKey(fromJson: stringNullableFromJson)
@@ -121,12 +121,12 @@ class _AddressComponent {
   final Neighborhood? neighborhood;
   @JsonKey(fromJson: Building.nullableFromJson)
   final Building? building;
-  @JsonKey(fromJson: _StreetNumber.nullableFromJson)
-  final _StreetNumber? streetNumber;
-  @JsonKey(fromJson: _BusinessArea.nullableListFromJson)
-  final List<_BusinessArea>? businessAreas;
+  @JsonKey(fromJson: StreetNumber.nullableFromJson)
+  final StreetNumber? streetNumber;
+  @JsonKey(fromJson: BusinessArea.nullableListFromJson)
+  final List<BusinessArea>? businessAreas;
 
-  const _AddressComponent({
+  const AddressComponent({
     this.country,
     this.province,
     this.city,
@@ -141,12 +141,12 @@ class _AddressComponent {
     this.businessAreas,
   });
 
-  factory _AddressComponent.fromJson(Map<String, dynamic> json) =>
+  factory AddressComponent.fromJson(Map<String, dynamic> json) =>
       _$AddressComponentFromJson(json);
 
   Map<String, dynamic> toJson() => _$AddressComponentToJson(this);
 
-  _AddressComponent copyWith({
+  AddressComponent copyWith({
     String? country,
     String? province,
     String? city,
@@ -157,10 +157,10 @@ class _AddressComponent {
     String? townCode,
     Neighborhood? neighborhood,
     Building? building,
-    _StreetNumber? streetNumber,
-    List<_BusinessArea>? businessAreas,
+    StreetNumber? streetNumber,
+    List<BusinessArea>? businessAreas,
   }) {
-    return _AddressComponent(
+    return AddressComponent(
       country: country ?? this.country,
       province: province ?? this.province,
       city: city ?? this.city,
@@ -176,16 +176,16 @@ class _AddressComponent {
     );
   }
 
-  static _AddressComponent? nullableFromJson(dynamic value) {
+  static AddressComponent? nullableFromJson(dynamic value) {
     if (value is Map<String, dynamic>) {
-      return _AddressComponent.fromJson(value);
+      return AddressComponent.fromJson(value);
     }
     return null;
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class _StreetNumber {
+class StreetNumber {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? street;
   @JsonKey(fromJson: stringNullableFromJson)
@@ -197,7 +197,7 @@ class _StreetNumber {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? distance;
 
-  const _StreetNumber({
+  const StreetNumber({
     this.street,
     this.number,
     this.location,
@@ -205,19 +205,19 @@ class _StreetNumber {
     this.distance,
   });
 
-  factory _StreetNumber.fromJson(Map<String, dynamic> json) =>
+  factory StreetNumber.fromJson(Map<String, dynamic> json) =>
       _$StreetNumberFromJson(json);
 
   Map<String, dynamic> toJson() => _$StreetNumberToJson(this);
 
-  _StreetNumber copyWith({
+  StreetNumber copyWith({
     String? street,
     String? number,
     String? location,
     String? direction,
     String? distance,
   }) {
-    return _StreetNumber(
+    return StreetNumber(
       street: street ?? this.street,
       number: number ?? this.number,
       location: location ?? this.location,
@@ -226,16 +226,16 @@ class _StreetNumber {
     );
   }
 
-  static _StreetNumber? nullableFromJson(dynamic value) {
+  static StreetNumber? nullableFromJson(dynamic value) {
     if (value is Map<String, dynamic>) {
-      return _StreetNumber.fromJson(value);
+      return StreetNumber.fromJson(value);
     }
     return null;
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class _BusinessArea {
+class BusinessArea {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? location;
   @JsonKey(fromJson: stringNullableFromJson)
@@ -243,35 +243,35 @@ class _BusinessArea {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;
 
-  const _BusinessArea({
+  const BusinessArea({
     this.location,
     this.name,
     this.id,
   });
 
-  factory _BusinessArea.fromJson(Map<String, dynamic> json) =>
+  factory BusinessArea.fromJson(Map<String, dynamic> json) =>
       _$BusinessAreaFromJson(json);
 
   Map<String, dynamic> toJson() => _$BusinessAreaToJson(this);
 
-  _BusinessArea copyWith({
+  BusinessArea copyWith({
     String? location,
     String? name,
     String? id,
   }) {
-    return _BusinessArea(
+    return BusinessArea(
       location: location ?? this.location,
       name: name ?? this.name,
       id: id ?? this.id,
     );
   }
 
-  static List<_BusinessArea>? nullableListFromJson(dynamic value) {
-    List<_BusinessArea> result = [];
+  static List<BusinessArea>? nullableListFromJson(dynamic value) {
+    List<BusinessArea> result = [];
     if (value is List) {
       for (var item in value) {
         if (item is Map<String, dynamic>) {
-          result.add(_BusinessArea.fromJson(item));
+          result.add(BusinessArea.fromJson(item));
         }
       }
       return result;
@@ -281,7 +281,7 @@ class _BusinessArea {
 }
 
 @JsonSerializable(explicitToJson: true)
-class _Poi {
+class ReGeocodePoi {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;
   @JsonKey(fromJson: stringNullableFromJson)
@@ -303,7 +303,7 @@ class _Poi {
   @JsonKey(name: "businessarea", fromJson: stringNullableFromJson)
   final String? businessArea;
 
-  const _Poi({
+  const ReGeocodePoi({
     this.id,
     this.name,
     this.type,
@@ -316,11 +316,12 @@ class _Poi {
     this.businessArea,
   });
 
-  factory _Poi.fromJson(Map<String, dynamic> json) => _$PoiFromJson(json);
+  factory ReGeocodePoi.fromJson(Map<String, dynamic> json) =>
+      _$ReGeocodePoiFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PoiToJson(this);
+  Map<String, dynamic> toJson() => _$ReGeocodePoiToJson(this);
 
-  _Poi copyWith({
+  ReGeocodePoi copyWith({
     String? id,
     String? name,
     String? type,
@@ -332,7 +333,7 @@ class _Poi {
     String? poiWeight,
     String? businessArea,
   }) {
-    return _Poi(
+    return ReGeocodePoi(
       id: id ?? this.id,
       name: name ?? this.name,
       type: type ?? this.type,
@@ -346,12 +347,12 @@ class _Poi {
     );
   }
 
-  static List<_Poi>? nullableListFromJson(dynamic value) {
-    List<_Poi> result = [];
+  static List<ReGeocodePoi>? nullableListFromJson(dynamic value) {
+    List<ReGeocodePoi> result = [];
     if (value is List) {
       for (var item in value) {
         if (item is Map<String, dynamic>) {
-          result.add(_Poi.fromJson(item));
+          result.add(ReGeocodePoi.fromJson(item));
         }
       }
       return result;
@@ -361,7 +362,7 @@ class _Poi {
 }
 
 @JsonSerializable(explicitToJson: true)
-class _Road {
+class Road {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;
   @JsonKey(fromJson: stringNullableFromJson)
@@ -373,7 +374,7 @@ class _Road {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? location;
 
-  const _Road({
+  const Road({
     this.id,
     this.name,
     this.direction,
@@ -381,18 +382,18 @@ class _Road {
     this.location,
   });
 
-  factory _Road.fromJson(Map<String, dynamic> json) => _$RoadFromJson(json);
+  factory Road.fromJson(Map<String, dynamic> json) => _$RoadFromJson(json);
 
   Map<String, dynamic> toJson() => _$RoadToJson(this);
 
-  _Road copyWith({
+  Road copyWith({
     String? id,
     String? name,
     String? direction,
     String? distance,
     String? location,
   }) {
-    return _Road(
+    return Road(
       id: id ?? this.id,
       name: name ?? this.name,
       direction: direction ?? this.direction,
@@ -401,12 +402,12 @@ class _Road {
     );
   }
 
-  static List<_Road>? nullableListFromJson(dynamic value) {
-    List<_Road> result = [];
+  static List<Road>? nullableListFromJson(dynamic value) {
+    List<Road> result = [];
     if (value is List) {
       for (var item in value) {
         if (item is Map<String, dynamic>) {
-          result.add(_Road.fromJson(item));
+          result.add(Road.fromJson(item));
         }
       }
       return result;
@@ -416,7 +417,7 @@ class _Road {
 }
 
 @JsonSerializable(explicitToJson: true)
-class _RoadInter {
+class RoadInter {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? direction;
   @JsonKey(fromJson: stringNullableFromJson)
@@ -432,7 +433,7 @@ class _RoadInter {
   @JsonKey(name: 'second_name', fromJson: stringNullableFromJson)
   final String? secondName;
 
-  const _RoadInter({
+  const RoadInter({
     this.direction,
     this.distance,
     this.location,
@@ -442,12 +443,12 @@ class _RoadInter {
     this.secondName,
   });
 
-  factory _RoadInter.fromJson(Map<String, dynamic> json) =>
+  factory RoadInter.fromJson(Map<String, dynamic> json) =>
       _$RoadInterFromJson(json);
 
   Map<String, dynamic> toJson() => _$RoadInterToJson(this);
 
-  _RoadInter copyWith({
+  RoadInter copyWith({
     String? direction,
     String? distance,
     String? location,
@@ -456,7 +457,7 @@ class _RoadInter {
     String? secondId,
     String? secondName,
   }) {
-    return _RoadInter(
+    return RoadInter(
       direction: direction ?? this.direction,
       distance: distance ?? this.distance,
       location: location ?? this.location,
@@ -467,12 +468,12 @@ class _RoadInter {
     );
   }
 
-  static List<_RoadInter>? nullableListFromJson(dynamic value) {
-    List<_RoadInter> result = [];
+  static List<RoadInter>? nullableListFromJson(dynamic value) {
+    List<RoadInter> result = [];
     if (value is List) {
       for (var item in value) {
         if (item is Map<String, dynamic>) {
-          result.add(_RoadInter.fromJson(item));
+          result.add(RoadInter.fromJson(item));
         }
       }
       return result;
@@ -482,7 +483,7 @@ class _RoadInter {
 }
 
 @JsonSerializable(explicitToJson: true)
-class _Aoi {
+class Aoi {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? id;
   @JsonKey(fromJson: stringNullableFromJson)
@@ -498,7 +499,7 @@ class _Aoi {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? type;
 
-  const _Aoi({
+  const Aoi({
     this.id,
     this.name,
     this.adcode,
@@ -508,11 +509,11 @@ class _Aoi {
     this.type,
   });
 
-  factory _Aoi.fromJson(Map<String, dynamic> json) => _$AoiFromJson(json);
+  factory Aoi.fromJson(Map<String, dynamic> json) => _$AoiFromJson(json);
 
   Map<String, dynamic> toJson() => _$AoiToJson(this);
 
-  _Aoi copyWith({
+  Aoi copyWith({
     String? id,
     String? name,
     String? adcode,
@@ -521,7 +522,7 @@ class _Aoi {
     String? distance,
     String? type,
   }) {
-    return _Aoi(
+    return Aoi(
       id: id ?? this.id,
       name: name ?? this.name,
       adcode: adcode ?? this.adcode,
@@ -532,12 +533,12 @@ class _Aoi {
     );
   }
 
-  static List<_Aoi>? nullableListFromJson(dynamic value) {
-    List<_Aoi> result = [];
+  static List<Aoi>? nullableListFromJson(dynamic value) {
+    List<Aoi> result = [];
     if (value is List) {
       for (var item in value) {
         if (item is Map<String, dynamic>) {
-          result.add(_Aoi.fromJson(item));
+          result.add(Aoi.fromJson(item));
         }
       }
       return result;

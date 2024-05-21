@@ -12,7 +12,7 @@ SearchPoiResponse _$SearchPoiResponseFromJson(Map<String, dynamic> json) =>
       info: stringNullableFromJson(json['info']),
       infoCode: stringNullableFromJson(json['infocode']),
       count: stringNullableFromJson(json['count']),
-      pois: _Poi.nullableListFromJson(json['pois']),
+      pois: Poi.nullableListFromJson(json['pois']),
     );
 
 Map<String, dynamic> _$SearchPoiResponseToJson(SearchPoiResponse instance) =>
@@ -24,7 +24,7 @@ Map<String, dynamic> _$SearchPoiResponseToJson(SearchPoiResponse instance) =>
       'pois': instance.pois?.map((e) => e.toJson()).toList(),
     };
 
-_Poi _$PoiFromJson(Map<String, dynamic> json) => _Poi(
+Poi _$PoiFromJson(Map<String, dynamic> json) => Poi(
       parent: stringNullableFromJson(json['parent']),
       address: stringNullableFromJson(json['address']),
       distance: stringNullableFromJson(json['distance']),
@@ -41,7 +41,7 @@ _Poi _$PoiFromJson(Map<String, dynamic> json) => _Poi(
       id: stringNullableFromJson(json['id']),
     );
 
-Map<String, dynamic> _$PoiToJson(_Poi instance) => <String, dynamic>{
+Map<String, dynamic> _$PoiToJson(Poi instance) => <String, dynamic>{
       'parent': instance.parent,
       'address': instance.address,
       'distance': instance.distance,

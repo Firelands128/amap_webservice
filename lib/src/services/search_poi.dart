@@ -52,18 +52,18 @@ extension SearchPoiService on AMapWebService {
   /// page_num: 请求第几分页，page_num的取值1-100，默认为1
   /// output: 返回结果格式类型，默认格式为json，目前只支持json格式
   Future<SearchPoiResponse> searchAround(
-      LatLng location, {
-        String? keywords,
-        String? types,
-        int? radius,
-        String? sortRule,
-        String? region,
-        bool? cityLimit,
-        String? showFields,
-        int? pageSize,
-        int? pageNum,
-        String? output,
-      }) async {
+    LatLng location, {
+    String? keywords,
+    String? types,
+    int? radius,
+    String? sortRule,
+    String? region,
+    bool? cityLimit,
+    String? showFields,
+    int? pageSize,
+    int? pageNum,
+    String? output,
+  }) async {
     Uri uri = appendApiPath(this.uri, "/v5/place/around");
     final params = <String, dynamic>{};
     params['key'] = apiKey;

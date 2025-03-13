@@ -6,7 +6,7 @@ import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../types.dart';
+import '../types/types.dart';
 
 part 'geocode_service.dart';
 part 'search_poi_service.dart';

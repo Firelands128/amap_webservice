@@ -1,4 +1,4 @@
-import 'base.dart';
+import '../utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'building.g.dart';

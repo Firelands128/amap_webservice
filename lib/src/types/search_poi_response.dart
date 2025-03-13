@@ -1,6 +1,7 @@
-import 'package:amap_webservice/src/types/base.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:latlong2/latlong.dart';
+
+import '../utils/utils.dart';
 
 part 'search_poi_response.g.dart';
 

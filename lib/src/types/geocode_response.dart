@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:latlong2/latlong.dart';
 
-import 'base.dart';
+import '../utils/utils.dart';
 import 'building.dart';
 import 'neighborhood.dart';
 

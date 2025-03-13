@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'base.dart';
+import '../utils/utils.dart';
 
 part 'neighborhood.g.dart';
 

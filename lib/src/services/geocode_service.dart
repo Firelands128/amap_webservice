@@ -14,8 +14,8 @@ extension GeocodeService on AMapWebService {
     final params = <String, dynamic>{};
     params['key'] = apiKey;
     params["address"] = address;
-    if (city != null) params["city"] = city;
-    if (output != null) params["output"] = output;
+    if (city != null && city.isNotEmpty) params["city"] = city;
+    if (output != null && output.isNotEmpty) params["output"] = output;
     if (secretKey != null) params["sig"] = generateSignature(params);
     final url = appendParameters(uri, params).toString();
     final response = await doGet(url, headers: apiHeaders);
@@ -45,11 +45,11 @@ extension GeocodeService on AMapWebService {
     params["location"] = "${location.longitude.toStringAsFixed(6)},"
         "${location.latitude.toStringAsFixed(6)}";
     if (radius != null) params["radius"] = min(max(0, radius), 3000).toString();
-    if (output != null) params["output"] = output;
-    if (extensions != null) params["extensions"] = extensions;
-    if (poiType != null) params["poitype"] = poiType;
-    if (roadLevel != null) params["roadlevel"] = roadLevel;
-    if (homeOrCorp != null) params["homeorcorp"] = homeOrCorp;
+    if (output != null && output.isNotEmpty) params["output"] = output;
+    if (extensions != null && extensions.isNotEmpty) params["extensions"] = extensions;
+    if (poiType != null && poiType.isNotEmpty) params["poitype"] = poiType;
+    if (roadLevel != null && roadLevel.isNotEmpty) params["roadlevel"] = roadLevel;
+    if (homeOrCorp != null && homeOrCorp.isNotEmpty) params["homeorcorp"] = homeOrCorp;
     if (secretKey != null) params["sig"] = generateSignature(params);
     final url = appendParameters(uri, params).toString();
     final response = await doGet(url, headers: apiHeaders);

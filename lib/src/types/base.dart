@@ -4,6 +4,10 @@ String? stringNullableFromJson(dynamic value) {
   return (value is String?) ? value : null;
 }
 
+List<String>? stringListNullableFromJson(dynamic value) {
+  return (value is List<String>?) ? value : null;
+}
+
 String latLngNullableToJson(LatLng? latLng) {
   if (latLng != null) {
     return "${latLng.longitude.toStringAsFixed(6)},"

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:crypto/crypto.dart';
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -15,19 +14,14 @@ part 'services/search_poi.dart';
 class AMapWebService {
   final _kAMapsUri = Uri.parse('https://restapi.amap.com');
 
-  @protected
   final Client _httpClient;
 
-  @protected
   final String _apiKey;
 
-  @protected
   final String? _secretKey;
 
-  @protected
   final Map<String, String>? _apiHeaders;
 
-  @protected
   late final Uri _uri;
 
   Client get httpClient => _httpClient;
@@ -55,17 +49,14 @@ class AMapWebService {
 
   void dispose() => httpClient.close();
 
-  @protected
   Uri appendApiPath(Uri uri, String apiPath) {
     return uri.replace(path: '${uri.path}$apiPath');
   }
 
-  @protected
   Uri appendParameters(Uri uri, Map<String, dynamic> params) {
     return uri.replace(queryParameters: params);
   }
 
-  @protected
   String generateSignature(Map<String, dynamic> params) {
     assert(secretKey != null);
     String raw = SplayTreeMap.from(params)
@@ -77,12 +68,10 @@ class AMapWebService {
     return md5.convert(utf8.encode(raw)).toString();
   }
 
-  @protected
   Future<Response> doGet(String url, {Map<String, String>? headers}) {
     return httpClient.get(Uri.parse(url), headers: headers);
   }
 
-  @protected
   Future<Response> doPost(
     String url,
     String body, {

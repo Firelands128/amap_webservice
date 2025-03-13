@@ -1,3 +1,13 @@
+## 0.1.1
+
+Add IP positioning response type and service, and add according demo in example app.
+
+Update api parameters checking.
+
+Update ios and android gradle configuration.
+
+Remove flutter dependency.
+
 ## 0.1.0
 
 Add search around api service.

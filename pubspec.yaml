@@ -1,6 +1,6 @@
 name: amap_webservice
 description: A Flutter package that packaging amap web service.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/Firelands128/amap_webservice
 
 environment:

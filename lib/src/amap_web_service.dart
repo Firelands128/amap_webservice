@@ -9,7 +9,7 @@ import 'package:latlong2/latlong.dart';
 import 'types.dart';
 
 part 'services/geocode_service.dart';
-part 'services/search_poi.dart';
+part 'services/search_poi_service.dart';
 part 'services/location_ip_service.dart';
 
 class AMapWebService {

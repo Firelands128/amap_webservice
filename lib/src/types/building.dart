@@ -1,5 +1,6 @@
-import '../utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../utils/utils.dart';
 
 part 'building.g.dart';
 
@@ -15,8 +16,7 @@ class Building {
     this.type,
   });
 
-  factory Building.fromJson(Map<String, dynamic> json) =>
-      _$BuildingFromJson(json);
+  factory Building.fromJson(Map<String, dynamic> json) => _$BuildingFromJson(json);
 
   Map<String, dynamic> toJson() => _$BuildingToJson(this);
 

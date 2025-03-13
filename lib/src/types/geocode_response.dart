@@ -28,8 +28,7 @@ class GeocodeResponse {
     this.geocodes,
   });
 
-  factory GeocodeResponse.fromJson(Map<String, dynamic> json) =>
-      _$GeocodeResponseFromJson(json);
+  factory GeocodeResponse.fromJson(Map<String, dynamic> json) => _$GeocodeResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$GeocodeResponseToJson(this);
 
@@ -95,8 +94,7 @@ class Geocode {
     this.level,
   });
 
-  factory Geocode.fromJson(Map<String, dynamic> json) =>
-      _$GeocodeFromJson(json);
+  factory Geocode.fromJson(Map<String, dynamic> json) => _$GeocodeFromJson(json);
 
   Map<String, dynamic> toJson() => _$GeocodeToJson(this);
 

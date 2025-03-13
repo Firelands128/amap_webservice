@@ -68,8 +68,7 @@ class ReGeocode {
     this.aois,
   });
 
-  factory ReGeocode.fromJson(Map<String, dynamic> json) =>
-      _$ReGeocodeFromJson(json);
+  factory ReGeocode.fromJson(Map<String, dynamic> json) => _$ReGeocodeFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReGeocodeToJson(this);
 
@@ -141,8 +140,7 @@ class AddressComponent {
     this.businessAreas,
   });
 
-  factory AddressComponent.fromJson(Map<String, dynamic> json) =>
-      _$AddressComponentFromJson(json);
+  factory AddressComponent.fromJson(Map<String, dynamic> json) => _$AddressComponentFromJson(json);
 
   Map<String, dynamic> toJson() => _$AddressComponentToJson(this);
 
@@ -205,8 +203,7 @@ class StreetNumber {
     this.distance,
   });
 
-  factory StreetNumber.fromJson(Map<String, dynamic> json) =>
-      _$StreetNumberFromJson(json);
+  factory StreetNumber.fromJson(Map<String, dynamic> json) => _$StreetNumberFromJson(json);
 
   Map<String, dynamic> toJson() => _$StreetNumberToJson(this);
 
@@ -249,8 +246,7 @@ class BusinessArea {
     this.id,
   });
 
-  factory BusinessArea.fromJson(Map<String, dynamic> json) =>
-      _$BusinessAreaFromJson(json);
+  factory BusinessArea.fromJson(Map<String, dynamic> json) => _$BusinessAreaFromJson(json);
 
   Map<String, dynamic> toJson() => _$BusinessAreaToJson(this);
 
@@ -316,8 +312,7 @@ class ReGeocodePoi {
     this.businessArea,
   });
 
-  factory ReGeocodePoi.fromJson(Map<String, dynamic> json) =>
-      _$ReGeocodePoiFromJson(json);
+  factory ReGeocodePoi.fromJson(Map<String, dynamic> json) => _$ReGeocodePoiFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReGeocodePoiToJson(this);
 
@@ -443,8 +438,7 @@ class RoadInter {
     this.secondName,
   });
 
-  factory RoadInter.fromJson(Map<String, dynamic> json) =>
-      _$RoadInterFromJson(json);
+  factory RoadInter.fromJson(Map<String, dynamic> json) => _$RoadInterFromJson(json);
 
   Map<String, dynamic> toJson() => _$RoadInterToJson(this);
 

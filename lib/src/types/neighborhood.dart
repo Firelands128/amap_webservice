@@ -16,8 +16,7 @@ class Neighborhood {
     this.type,
   });
 
-  factory Neighborhood.fromJson(Map<String, dynamic> json) =>
-      _$NeighborhoodFromJson(json);
+  factory Neighborhood.fromJson(Map<String, dynamic> json) => _$NeighborhoodFromJson(json);
 
   Map<String, dynamic> toJson() => _$NeighborhoodToJson(this);
 
@@ -38,4 +37,3 @@ class Neighborhood {
     return null;
   }
 }
-

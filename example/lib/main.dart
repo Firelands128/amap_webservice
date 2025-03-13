@@ -1,3 +1,4 @@
+import 'package:example/pages/location_ip_service_page.dart';
 import 'package:example/pages/search_poi_service_page.dart';
 import 'package:flutter/material.dart';
 
@@ -42,6 +43,10 @@ class _AppState extends State<App> {
               Item(
                 SearchPoiServicePage.title,
                 (_) => const SearchPoiServicePage(),
+              ),
+              Item(
+                LocationIpServicePage.title,
+                (_) => const LocationIpServicePage(),
               ),
             ],
           ),

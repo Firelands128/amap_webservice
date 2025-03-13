@@ -6,11 +6,11 @@ import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 import 'package:latlong2/latlong.dart';
 
-import 'types.dart';
+import '../types.dart';
 
-part 'services/geocode_service.dart';
-part 'services/search_poi_service.dart';
-part 'services/location_ip_service.dart';
+part 'geocode_service.dart';
+part 'search_poi_service.dart';
+part 'location_ip_service.dart';
 
 class AMapWebService {
   final _kAMapsUri = Uri.parse('https://restapi.amap.com');

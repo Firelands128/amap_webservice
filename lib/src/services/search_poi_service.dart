@@ -1,4 +1,4 @@
-part of '../amap_web_service.dart';
+part of 'amap_web_service.dart';
 
 extension SearchPoiService on AMapWebService {
   /// [关键字搜索](https://lbs.amap.com/api/webservice/guide/api-advanced/newpoisearch#t3)

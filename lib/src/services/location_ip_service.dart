@@ -1,4 +1,4 @@
-part of '../amap_web_service.dart';
+part of 'amap_web_service.dart';
 
 extension LocationIpService on AMapWebService {
   /// [高级IP定位](https://lbs.amap.com/api/webservice/guide/api/ipconfig)

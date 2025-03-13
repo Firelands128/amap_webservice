@@ -1,4 +1,4 @@
-part of '../amap_web_service.dart';
+part of 'amap_web_service.dart';
 
 extension GeocodeService on AMapWebService {
   /// [地理编码](https://lbs.amap.com/api/webservice/guide/api/georegeo#geo)

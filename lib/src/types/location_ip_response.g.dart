@@ -14,7 +14,7 @@ LocationIpResponse _$LocationIpResponseFromJson(Map<String, dynamic> json) =>
       province: stringNullableFromJson(json['province']),
       city: stringNullableFromJson(json['city']),
       adcode: stringNullableFromJson(json['adcode']),
-      rectangle: stringListNullableFromJson(json['rectangle']),
+      rectangle: LatLngBounds.nullableFromJson(json['rectangle']),
     );
 
 Map<String, dynamic> _$LocationIpResponseToJson(LocationIpResponse instance) =>
@@ -25,5 +25,5 @@ Map<String, dynamic> _$LocationIpResponseToJson(LocationIpResponse instance) =>
       'province': instance.province,
       'city': instance.city,
       'adcode': instance.adcode,
-      'rectangle': instance.rectangle,
+      'rectangle': instance.rectangle?.toJson(),
     };

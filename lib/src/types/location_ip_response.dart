@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../utils/utils.dart';
 
@@ -30,9 +31,9 @@ class LocationIpResponse {
   @JsonKey(fromJson: stringNullableFromJson)
   final String? adcode;
 
-  /// rectangle: 所在城市矩形区域范围，格式为[西, 南, 东, 北]，单位为经纬度
-  @JsonKey(fromJson: stringListNullableFromJson)
-  final List<String>? rectangle;
+  /// rectangle: 所在城市矩形区域范围，格式为[西, 南; 东, 北]，单位为经纬度
+  @JsonKey(fromJson: LatLngBounds.nullableFromJson)
+  final LatLngBounds? rectangle;
 
   const LocationIpResponse({
     this.status,
@@ -56,7 +57,7 @@ class LocationIpResponse {
     String? province,
     String? city,
     String? adcode,
-    List<String>? rectangle,
+    LatLngBounds? rectangle,
   }) {
     return LocationIpResponse(
       status: status ?? this.status,
@@ -67,5 +68,42 @@ class LocationIpResponse {
       adcode: adcode ?? this.adcode,
       rectangle: rectangle ?? this.rectangle,
     );
+  }
+}
+
+class LatLngBounds {
+  final LatLng southWest;
+  final LatLng northEast;
+
+  LatLngBounds({
+    required this.southWest,
+    required this.northEast,
+  });
+
+  String toJson() =>
+      "[${southWest.longitude},${southWest.latitude};${northEast.longitude},${northEast.latitude}]";
+
+  LatLngBounds copyWith({
+    LatLng? southWest,
+    LatLng? northEast,
+  }) {
+    return LatLngBounds(
+      southWest: southWest ?? this.southWest,
+      northEast: northEast ?? this.northEast,
+    );
+  }
+
+  static LatLngBounds? nullableFromJson(dynamic value) {
+    if (value is String && value.isNotEmpty) {
+      final list = value.split(";");
+      final southWestList = list[0].split(",");
+      final northEastList = list[1].split(",");
+      final west = double.parse(southWestList[0]);
+      final south = double.parse(southWestList[1]);
+      final east = double.parse(northEastList[0]);
+      final north = double.parse(northEastList[1]);
+      return LatLngBounds(southWest: LatLng(south, west), northEast: LatLng(north, east));
+    }
+    return null;
   }
 }

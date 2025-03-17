@@ -1,3 +1,7 @@
+## 0.1.2
+
+Update LocationIpResponse type.
+
 ## 0.1.1
 
 Add IP positioning response type and service, and add according demo in example app.

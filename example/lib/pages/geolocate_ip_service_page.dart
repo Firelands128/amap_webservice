@@ -4,29 +4,29 @@ import 'package:amap_webservice/amap_webservice.dart';
 import 'package:flutter/material.dart';
 
 /// IP定位页面
-class LocationIpServicePage extends StatefulWidget {
+class GeolocateIpServicePage extends StatefulWidget {
   /// IP定位页面构造函数
-  const LocationIpServicePage({super.key});
+  const GeolocateIpServicePage({super.key});
 
   /// IP定位页面标题
   static const title = 'IP定位';
 
   @override
-  State<LocationIpServicePage> createState() => _LocationIpServicePageState();
+  State<GeolocateIpServicePage> createState() => _GeolocateIpServicePageState();
 }
 
-class _LocationIpServicePageState extends State<LocationIpServicePage> {
+class _GeolocateIpServicePageState extends State<GeolocateIpServicePage> {
   final service = AMapWebService(
     apiKey: '0e2f6cd577c7b01f2f10e8a8a4cdf153',
     secretKey: '36b5528aecd3e4aba379e1ef352820fd',
   );
-  final locationIpController = TextEditingController();
-  final locationIpResultController = TextEditingController();
+  final geolocateIpController = TextEditingController();
+  final geolocateIpResultController = TextEditingController();
 
   void onSearchTextPressed() async {
-    final response = await service.locationIP(ip: locationIpController.text);
+    final response = await service.geolocateIP(ip: geolocateIpController.text);
     setState(() {
-      locationIpResultController.text = jsonEncode({
+      geolocateIpResultController.text = jsonEncode({
         "省份": response.province,
         "城市": response.city,
         "adcode编码": response.adcode,
@@ -39,7 +39,7 @@ class _LocationIpServicePageState extends State<LocationIpServicePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(LocationIpServicePage.title),
+        title: const Text(GeolocateIpServicePage.title),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -55,7 +55,7 @@ class _LocationIpServicePageState extends State<LocationIpServicePage> {
                 margin: const EdgeInsets.only(top: 10),
                 child: TextField(
                   textAlignVertical: TextAlignVertical.center,
-                  controller: locationIpController,
+                  controller: geolocateIpController,
                   decoration: const InputDecoration(
                     isDense: true,
                     border: OutlineInputBorder(borderSide: BorderSide()),
@@ -80,7 +80,7 @@ class _LocationIpServicePageState extends State<LocationIpServicePage> {
                       readOnly: true,
                       minLines: 5,
                       maxLines: 5,
-                      controller: locationIpResultController,
+                      controller: geolocateIpResultController,
                     ),
                   ],
                 ),

@@ -3,10 +3,10 @@ import 'package:latlong2/latlong.dart';
 
 import '../utils/utils.dart';
 
-part 'location_ip_response.g.dart';
+part 'geolocate_ip_response.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class LocationIpResponse {
+class GeolocateIpResponse {
   /// status: 返回结果状态值，值为0或1；0表示失败，1表示成功
   @JsonKey(fromJson: stringNullableFromJson)
   final String? status;
@@ -35,7 +35,7 @@ class LocationIpResponse {
   @JsonKey(fromJson: LatLngBounds.nullableFromJson)
   final LatLngBounds? rectangle;
 
-  const LocationIpResponse({
+  const GeolocateIpResponse({
     this.status,
     this.info,
     this.infoCode,
@@ -45,12 +45,12 @@ class LocationIpResponse {
     this.rectangle,
   });
 
-  factory LocationIpResponse.fromJson(Map<String, dynamic> json) =>
-      _$LocationIpResponseFromJson(json);
+  factory GeolocateIpResponse.fromJson(Map<String, dynamic> json) =>
+      _$GeolocateIpResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$LocationIpResponseToJson(this);
+  Map<String, dynamic> toJson() => _$GeolocateIpResponseToJson(this);
 
-  LocationIpResponse copyWith({
+  GeolocateIpResponse copyWith({
     String? status,
     String? info,
     String? infoCode,
@@ -59,7 +59,7 @@ class LocationIpResponse {
     String? adcode,
     LatLngBounds? rectangle,
   }) {
-    return LocationIpResponse(
+    return GeolocateIpResponse(
       status: status ?? this.status,
       info: info ?? this.info,
       infoCode: infoCode ?? this.infoCode,

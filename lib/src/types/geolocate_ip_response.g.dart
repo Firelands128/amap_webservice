@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'location_ip_response.dart';
+part of 'geolocate_ip_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-LocationIpResponse _$LocationIpResponseFromJson(Map<String, dynamic> json) =>
-    LocationIpResponse(
+GeolocateIpResponse _$GeolocateIpResponseFromJson(Map<String, dynamic> json) =>
+    GeolocateIpResponse(
       status: stringNullableFromJson(json['status']),
       info: stringNullableFromJson(json['info']),
       infoCode: stringNullableFromJson(json['infoCode']),
@@ -17,7 +17,8 @@ LocationIpResponse _$LocationIpResponseFromJson(Map<String, dynamic> json) =>
       rectangle: LatLngBounds.nullableFromJson(json['rectangle']),
     );
 
-Map<String, dynamic> _$LocationIpResponseToJson(LocationIpResponse instance) =>
+Map<String, dynamic> _$GeolocateIpResponseToJson(
+        GeolocateIpResponse instance) =>
     <String, dynamic>{
       'status': instance.status,
       'info': instance.info,

@@ -10,7 +10,7 @@ import '../types/types.dart';
 
 part 'geocode_service.dart';
 part 'search_poi_service.dart';
-part 'location_ip_service.dart';
+part 'geolocate_ip_service.dart';
 
 class AMapWebService {
   final _kAMapsUri = Uri.parse('https://restapi.amap.com');
